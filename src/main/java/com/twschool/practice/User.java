@@ -5,7 +5,7 @@ import java.util.List;
 
 public class User {
     List<Goods> goodsList = new ArrayList<>();
-    private int points;
+    private int points = 0;
 
     public void addGoods(Goods goods) {
         goodsList.add(goods);
@@ -13,7 +13,13 @@ public class User {
 
 
     public int calcultePoints() {
-        points = goodsList.stream().mapToInt(goods -> goods.getPrice()).sum();
+        goodsList.forEach(goods -> {
+            if(goods.isPromotion()){
+                points += goods.getPrice() * 2;
+            }else{
+                points += goods.getPrice();
+            }
+        });
         return points;
     }
 }
