@@ -19,6 +19,14 @@ public class Goods {
         return price;
     }
 
+    public int getPromotionPoints() {
+        return price * 2;
+    }
+
+    public int getPriceOverOneThouSandPoints() {
+        return 1000 + (price - 1000) / 20;
+    }
+
     public boolean isPromotion() {
         for (Promotion promotion : PromotionGoods) {
             if (promotion.toString().equals(goodsType)) {
@@ -27,4 +35,13 @@ public class Goods {
         }
         return false;
     }
+
+    public boolean priceOverOneThouSand() {
+        if(price > 1000){
+            return true;
+        }
+        return false;
+    }
+
+
 }

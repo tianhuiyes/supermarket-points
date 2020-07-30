@@ -45,4 +45,19 @@ public class UserTest {
 
     }
 
+    @Test
+    public void should_return_points_is_1067_when_calcultePoints_given_user_buy_Refrigerator_and_price_is_2350() {
+        //given
+        Goods goodsRefirgerator = new Goods("REFRIGERATOR",2350);
+        User user = new User();
+        
+        //when
+        user.addGoods(goodsRefirgerator);
+        int points = user.calcultePoints();
+
+        //then
+        Assert.assertEquals(1067,points);
+
+    }
+
 }
