@@ -22,7 +22,11 @@ public class User {
 
     private int calculteCurrentGoodsPoints(Goods goods) {
         if(goods.priceOverOneThouSand()){
-            return points += goods.getPriceOverOneThouSandPoints();
+            if(goods.isPromotion()){
+                return points += goods.getPromotionAndPriceOverOneThousandPoints();
+            }else {
+                return points += goods.getPriceOverOneThouSandPoints();
+            }
         }
         if(goods.isPromotion()){
             points += goods.getPromotionPoints();

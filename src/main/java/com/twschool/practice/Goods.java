@@ -8,7 +8,7 @@ public class Goods {
 
     private String goodsType;
     private int price;
-    private List<Promotion> PromotionGoods = Arrays.asList(Promotion.APPLE, Promotion.WATERMELON, Promotion.BEEF);
+    private List<Promotion> PromotionGoods = Arrays.asList(Promotion.APPLE, Promotion.WATERMELON, Promotion.BEEF,Promotion.TELEVISON);
 
     public Goods(String goodsType, int price) {
         this.goodsType = goodsType;
@@ -27,6 +27,10 @@ public class Goods {
         return 1000 + (price - 1000) / 20;
     }
 
+    public int getPromotionAndPriceOverOneThousandPoints() {
+        return 1000 * 2 + (price - 1000);
+    }
+
     public boolean isPromotion() {
         for (Promotion promotion : PromotionGoods) {
             if (promotion.toString().equals(goodsType)) {
@@ -42,6 +46,7 @@ public class Goods {
         }
         return false;
     }
+
 
 
 }

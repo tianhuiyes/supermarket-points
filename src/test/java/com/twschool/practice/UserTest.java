@@ -50,13 +50,28 @@ public class UserTest {
         //given
         Goods goodsRefirgerator = new Goods("REFRIGERATOR",2350);
         User user = new User();
-        
+
         //when
         user.addGoods(goodsRefirgerator);
         int points = user.calcultePoints();
 
         //then
         Assert.assertEquals(1067,points);
+
+    }
+
+    @Test
+    public void should_return_points_is_3000_when_calcultePoints_given_user_buy_television_and_price_is_2000_and_television_is_promotion() {
+        //given
+        Goods goodsTelevision = new Goods("TELEVISON",2000);
+        User user = new User();
+
+        //when
+        user.addGoods(goodsTelevision);
+        int points = user.calcultePoints();
+
+        //then
+        Assert.assertEquals(3000,points);
 
     }
 
